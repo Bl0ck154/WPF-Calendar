@@ -1,0 +1,54 @@
+﻿<Window x:Class="Calendar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        mc:Ignorable="d"
+        Title="Calendar" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".25*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height=".4*"/>
+        </Grid.RowDefinitions>
+        <TreeView>
+            <TreeViewItem Name="Winter" Header="Winter"/>
+            <TreeViewItem Name="Spring" Header="Spring"/>
+            <TreeViewItem Name="Summer" Header="Summer"/>
+            <TreeViewItem Name="Autumn" Header="Autumn"/>
+        </TreeView>
+        <ListView Name="listViewField" Grid.Column="2" Grid.RowSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Name="lYear">Year:</Label>
+            <ComboBox Grid.Column="2" Name="ComboboxYear" SelectionChanged="ComboboxYear_SelectionChanged"></ComboBox>
+            <Label Grid.Row="2" Name="lLang">Lang:</Label>
+            <ComboBox Name="ComboboxLanguage" Grid.Row="2" Grid.Column="2" SelectionChanged="ComboboxLanguage_SelectionChanged"></ComboBox>
+        </Grid>
+    </Grid>
+</Window>
